@@ -3,8 +3,8 @@ package storeFront;
 import java.util.Scanner;
 
 public class Menu {
+    private Shop shop;
     private String[] menuOptions = {"Exit","List Products","Buy Product","Find Product","Show Cart", "Checkout"};
-    private String[] products = {"Crew Neck", "V-Neck", "Polo", "Boat Neck", "Tank Top"};
     private Scanner scanner;
 
     public Menu(Scanner scanner) {
@@ -44,22 +44,6 @@ public class Menu {
         String name = scanner.nextLine();
 
         System.out.println("Welcome " + name + " to the T-Shirt Mart");
-    }
-
-    private void printProducts() {
-        System.out.println("--Products--");
-        for (int i = 0; i < products.length; i++) {
-            System.out.println("ID " +i+": " + products[i]);
-        }
-    }
-
-    public int findProduct(String searchText) {
-        for (int i = 0; i < products.length; i++) {
-            if (searchText.equals(products[i])) {
-                return i;
-            }
-        }
-        return -1;
     }
 
     private void printMenu() {
