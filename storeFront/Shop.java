@@ -2,13 +2,13 @@ package storeFront;
 
 
 public class Shop {
-    private String[] products = {"Crew Neck", "V-Neck", "Polo", "Boat Neck", "Tank Top"};
+    public String[] products;
 
-    public Shop() {
-
+    public Shop(String[] products) {
+        this.products = products.clone();
     }
 
-        private void printProducts() {
+        public void printProducts() {
         System.out.println("--Products--");
         for (int i = 0; i < products.length; i++) {
             System.out.println("ID " +i+": " + products[i]);
