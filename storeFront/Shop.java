@@ -29,4 +29,13 @@ public class Shop {
         return -1;
     }
 
+    public Product getProductById(int id) {
+        for (Product product : products) {
+            if (product.getId() == id) {
+                return product;
+            }
+        }
+        return null;
+    }
+
 }
