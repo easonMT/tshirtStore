@@ -3,6 +3,7 @@ package storeFront;
 import java.util.Scanner;
 
 public class Menu {
+    private Cart cart;
     private Shop shop;
     private String[] menuOptions = {"Exit","List Products","Buy Product","Find Product","Show Cart", "Checkout"};
     private Scanner scanner;
@@ -10,6 +11,7 @@ public class Menu {
     public Menu(Scanner scanner, Shop shop) {
         this.scanner = scanner;
         this.shop = shop;
+        this.cart = new Cart();
     }
 
     public void executeMenu() {
@@ -19,7 +21,14 @@ public class Menu {
             if ( choice == 1) {
                 shop.printProducts();
             }else if (choice == 2) {
-                System.out.println("This option has not yet been implemented");
+                System.out.println("Please enter the ID of the product you would like to purchase");
+                int choiceId = scanner.nextInt();
+                Product selectedProduct = shop.getProductById(choiceId);
+                if (selectedProduct == null) {
+                    System.out.println("Invalid product Id. Please try again");
+                }else {
+                    cart.addItem(selectedProduct);
+                }
             }else if (choice == 3) {
                 System.out.println("Enter item to search for:");
                 String itemToFind = getNextStringLineFromUser();
@@ -30,9 +39,14 @@ public class Menu {
                     System.out.println(itemToFind + " was found and its product id is " + searchResult);
                 }
             }else if (choice == 4) {
-                System.out.println("This option has not yet been implemented");
+                if (cart.isEmpty()){
+                    System.out.println("Your cart is empty. Please add items to your cart");
+                }else {
+                cart.showDetails();
+                }
             }else if (choice == 5) {
-                System.out.println("This option has not yet been implemented");
+                cart.checkout();
+                break;
             }
             printMenu();
             choice = getNextIntFromUser();
