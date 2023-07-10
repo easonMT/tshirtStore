@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Shop {
     private String name;
     private ArrayList<Product> products;
+    private Cart cart;
 
     public Shop(String name, ArrayList<Product> products) {
         this.name = name;
