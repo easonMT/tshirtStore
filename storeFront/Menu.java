@@ -7,8 +7,9 @@ public class Menu {
     private String[] menuOptions = {"Exit","List Products","Buy Product","Find Product","Show Cart", "Checkout"};
     private Scanner scanner;
 
-    public Menu(Scanner scanner) {
+    public Menu(Scanner scanner, Shop shop) {
         this.scanner = scanner;
+        this.shop = shop;
     }
 
     public void executeMenu() {
@@ -16,13 +17,13 @@ public class Menu {
         int choice = getNextIntFromUser();
         while(choice != 0) {
             if ( choice == 1) {
-                printProducts();
+                shop.printProducts();
             }else if (choice == 2) {
                 System.out.println("This option has not yet been implemented");
             }else if (choice == 3) {
                 System.out.println("Enter item to search for:");
                 String itemToFind = getNextStringLineFromUser();
-                int searchResult = findProduct(itemToFind);
+                int searchResult = shop.findProduct(itemToFind);
                 if(searchResult == -1) {
                     System.out.println("That product was not found");
                 }else {
