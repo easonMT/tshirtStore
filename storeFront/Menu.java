@@ -69,7 +69,7 @@ public class Menu {
         System.out.println();
 
         for (int i = 0; i < menuOptions.length; i++) {
-            System.out.println(i + ": ");
+            System.out.print(i + ": ");
             System.out.println(menuOptions[i]);
         }
     }
