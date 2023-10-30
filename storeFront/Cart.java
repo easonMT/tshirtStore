@@ -1,6 +1,5 @@
 package storeFront;
 
-import java.util.Arrays;
 import java.util.ArrayList;
 
 public class Cart {
@@ -28,7 +27,7 @@ public class Cart {
         System.out.printf("Pre-Tax Total: $%.2f%n", total);
         double taxAmount = total * taxRate;
         double totalAfterTax = total + taxAmount;
-        System.out.printf("Post-Tax Total (%.2f%% Tax): $%.2fn", taxRate * 100, totalAfterTax);
+        System.out.printf("Post-Tax Total (%.2f%% Tax): $%.2f%n", taxRate * 100, totalAfterTax);
 
     }
 
